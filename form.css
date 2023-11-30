@@ -1,0 +1,63 @@
+.form{
+    display: flex;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+input:checked+ label{
+    background-color: #dce0e6;
+}
+
+input[type="checkbox"], input[type="radio"]{
+
+    display: none;
+}
+
+
+input[type="color"]{
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+
+input[type="checkbox"]+label,
+input[type="radio"]+label {
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+
+.input{
+    padding: 5px;
+    min-width:100px;
+}
+
+.input:focus{
+    outline: none;
+}
+
+
+#cell-state{
+    display: flex;
+    gap: 20px;
+    padding: 20px 40px;
+    align-items: center;
+    
+}
+
+#cell-state input{
+    flex-grow: 1;
+    padding: 10px;
+}
+
+#cell-state input:focus{
+   outline: none;
+}
+
+#cell-state div{
+    background-color: #edf2fa;
+}
