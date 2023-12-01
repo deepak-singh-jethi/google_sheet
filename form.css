@@ -61,3 +61,13 @@ input[type="radio"]+label {
 #cell-state div{
     background-color: #edf2fa;
 }
+
+#export,#import {
+    cursor: pointer;
+    font-size: 32px !important;
+}
+
+
+.hidden-input {
+    display: none;
+}

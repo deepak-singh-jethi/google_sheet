@@ -17,8 +17,8 @@ const defaultStyle = {
   text: "",
 };
 
-//for storing the state and styles of different cells
-const state = {};
+//for storing the and and styles of different cells
+let state = {};
 
 //on focus cell
 function onFocusCell(event) {
@@ -26,7 +26,6 @@ function onFocusCell(event) {
   activeCellDisplay.innerText = activeCellId;
 
   //reset the form inputs depending upon the cells actual style
-
   if (state[activeCellId]) {
     //already touched cell => saved style in state object with key of cell id
     resetForm(state[activeCellId]);
@@ -116,28 +115,15 @@ function onChangeCellText(event) {
   let changedtext = event.target.innerText;
 
   if (state[activeCellId]) {
-    //the current cell is already added to state object
-    state[activeCellId].text = changedtext;
+    // The current cell is already added to the state object
+    // Create a new style object to prevent affecting other cells
+    state[activeCellId] = { ...state[activeCellId], text: changedtext };
   } else {
-    state[activeCellId] = defaultStyle;
-    state[activeCellId].text = changedtext;
+    state[activeCellId] = { ...defaultStyle, text: changedtext };
   }
 }
 
-function exportData() {
-  //TODO ;- export the file data and export it
-
-  const jsonData = JSON.stringify(state);
-
-  const blob = new Blob([jsonData], { type: "text/plain" });
-  const url = URL.createObjectURL(blob);
-
-  const link = document.createElement("a");
-  link.download = "data.json";
-  link.href = url;
-  link.click();
-}
-
+// math function
 function calcFun(event) {
   const activeCell = document.getElementById(activeCellId);
   if (event.keyCode === 13) {

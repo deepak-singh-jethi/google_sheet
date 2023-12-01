@@ -23,7 +23,7 @@
 }
 
 .head-cell{
-    min-width: 90px;
+    min-width: 105px;
     height: 30px;
     border: 0.11px solid #838483;
     border-top-width:2px ;
@@ -45,10 +45,8 @@
    
 }
 
-#export{
-  cursor: pointer;
-  font-size: 32px !important;    
-}
+
+
 
 /* body part */
 #body{
@@ -83,7 +81,7 @@
 }
 
 .cell{
-   width: 90px;
+   width: 105px;
     height: 35px;
     border: 0.11px solid #838483;
     overflow-x: scroll !important;

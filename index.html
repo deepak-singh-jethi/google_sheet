@@ -63,10 +63,20 @@
           <input type="color" name="bgColor" id="bgcolor" value="#ffffff" />
           <label for="bgcolor" class="material-icons">format_color_fill</label>
         </div>
-        <span id="export" class="material-icons" onclick="exportData()"
+
+
+        <div title="export file">
+           <span id="export" class="material-icons" onclick="exportData()"
           >cloud_upload</span
         >
-      </form>
+        </div>
+       
+     <div title="import file">
+        <label for="fileInput" class="material-icons" id="import" >cloud_download</label>
+
+  <input type="file" id="fileInput" accept=".json" class="hidden-input" onchange="importData()"/>
+     </div>
+       
     </div>
 
     <div id="cell-state">
@@ -150,6 +160,7 @@
       </div>
     </div>
 
+    <script src="./import_export.js"></script>
     <script src="./functinality.js"></script>
     <script src="./script.js"></script>
   </body>
