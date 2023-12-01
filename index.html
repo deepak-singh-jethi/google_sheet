@@ -6,12 +6,16 @@
     <title>Spread Sheet</title>
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./form.css" />
+    <link rel="stylesheet" href="./new_sheet.css">
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet" />
   </head>
   <body>
-    <div id="options">
+
+    <div>
+
+   <div id="options">
       <form class="form">
         <select name="fontFamily" id="" class="input">
           <option value="popins-extra-bold">Popins-extra-bold</option>
@@ -159,9 +163,24 @@
         </div>
       </div>
     </div>
+    </div>
+   
 
+    <div id="sheet_tab">
+      <span class="material-icons" onclick="addSheet()">
+add_box
+</span>
+      <!-- <div id="sheet1">Sheet-1</div> -->
+     
+    </div>
+    
+    
+    <script src="./newsheet.js"></script>
     <script src="./import_export.js"></script>
     <script src="./functinality.js"></script>
     <script src="./script.js"></script>
+   
+   
+   
   </body>
 </html>

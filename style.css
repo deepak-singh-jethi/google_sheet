@@ -81,10 +81,10 @@
 }
 
 .cell{
-   width: 105px;
+     width: 105px;
     height: 35px;
     border: 0.11px solid #838483;
-    overflow-x: scroll !important;
+    overflow: hidden;
 }
 .cell:focus{
     border-radius: none;

@@ -103,7 +103,7 @@ function importData() {
 }
 
 function clearSheet() {
-  // Clear the content of all cells in the sheet before exporting cell with file data
+  /*   // Clear the content of all cells in the sheet before exporting cell with file data
   const cells = document.querySelectorAll(".cell");
   cells.forEach((cell) => {
     cell.style.color = "";
@@ -118,7 +118,7 @@ function clearSheet() {
   });
 
   // Clear the state object
-  state = {};
+  state = {}; */
 }
 
 //export file

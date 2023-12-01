@@ -1,53 +1,90 @@
-// Existing code...
+// Number of sheets created
+let sheetCount = 1;
 
-let sheets = []; // Updated: Array to store multiple sheets
-let currentSheetIndex = 0;
+// Store all sheets and their info
+const sheet = {};
 
-// Existing code...
+// The currently active sheet
+let currentSheet = 1;
 
-function addNewSheet() {
-  const newSheet = {
-    state: {}, // Cell and form state for the new sheet
-  };
+const sheet_tab = document.getElementById("sheet_tab");
 
-  sheets.push(newSheet);
+//upon loading create 1st page
+window.onload = (event) => {
+  addSheetDiv();
+};
 
-  updateSheetList();
-  switchSheet(sheets.length - 1);
+function addSheetDiv() {
+  const sheetDiv = document.createElement("div");
+  sheetDiv.innerText = `Sheet-${sheetCount}`;
+  sheetDiv.className = "sheets";
+  sheet_tab.appendChild(sheetDiv);
+  sheetDiv.setAttribute("sheet-id", `${sheetCount}`);
+  sheetCount++;
+  currentSheet = sheetCount - 1;
+  sheetDiv.addEventListener("click", switchToThisSheet);
 }
 
-function switchSheet(sheetIndex) {
-  currentSheetIndex = sheetIndex;
+function addSheet() {
+  // Store the current sheet data in the sheet object for later use
 
-  // Update UI with cell content and form styles for the selected sheet
-  const activeSheet = sheets[currentSheetIndex];
-  state = activeSheet.state || {}; // Update state object with the selected sheet's state
+  sheet[`sheet${currentSheet}`] = state;
 
-  // Update the UI with the cell content and form styles based on the state object
-  // ... (Your existing logic to update the UI)
+  // Clear the state content of each cell in the current sheet  to create a fresh sheet
 
-  // Update the active cell display and form with the current state
-  if (activeCellId) {
-    activeCellDisplay.innerText = activeCellId;
-    resetForm(state[activeCellId] || defaultStyle);
-  } else {
-    activeCellDisplay.innerText = "NULL";
-    resetForm(defaultStyle);
+  state = {};
+
+  // Update the current sheet count
+  currentSheet = sheetCount;
+
+  // Reuse the createSheet function to set up the new sheet structure
+
+  bodyContainer.innerHTML = "";
+  createSheet();
+
+  // Add a new div showing the sheet number
+  addSheetDiv();
+}
+
+// Switch to the clicked sheet by retrieving all the data from the sheet object using the attribute sheet-id
+
+function switchToThisSheet(event) {
+  const clickedSheetId = event.target.getAttribute("sheet-id");
+  if (clickedSheetId) {
+    // Save the data of the current sheet to the sheet object
+
+    sheet[`sheet${currentSheet}`] = state;
+
+    // Switch to the clicked sheet
+    currentSheet = clickedSheetId;
+
+    // Retrieve and update the state with the data of the clicked sheet
+    state = { ...sheet[`sheet${currentSheet}`] };
+
+    // Clear the existing sheet structure
+    bodyContainer.innerHTML = "";
+
+    // Recreate the sheet structure and update the display with the data of the clicked sheet
+    createSheet();
+    updateSheetDisplay();
   }
 }
 
-function updateSheetList() {
-  const sheetListContainer = document.getElementById("sheet-list");
-  sheetListContainer.innerHTML = "";
+function updateSheetDisplay() {
+  for (const cellId in state) {
+    const cell = document.getElementById(cellId);
 
-  for (let i = 0; i < sheets.length; i++) {
-    const sheetNumber = i + 1;
-    const sheetButton = document.createElement("button");
-    sheetButton.innerText = `Sheet ${sheetNumber}`;
-    sheetButton.onclick = () => switchSheet(i);
-
-    sheetListContainer.appendChild(sheetButton);
+    if (cell) {
+      const cellData = state[cellId];
+      cell.style.color = cellData.textColor || "";
+      cell.style.backgroundColor = cellData.bgColor || "";
+      cell.style.fontSize = `${cellData.fontSize}px` || "16px";
+      cell.style.textAlign = cellData.align || "left";
+      cell.style.fontWeight = cellData.isBold ? "900" : "400";
+      cell.style.fontFamily = cellData.fontFamily || "popins-regular";
+      cell.style.textDecoration = cellData.isUnderline ? "underline" : "none";
+      cell.style.fontStyle = cellData.isItalic ? "italic" : "normal";
+      cell.innerText = cellData.text || "";
+    }
   }
 }
-
-// Existing code...
