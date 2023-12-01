@@ -11,15 +11,18 @@ const sheet_tab = document.getElementById("sheet_tab");
 
 //upon loading create 1st page
 window.onload = (event) => {
+  createSheet();
   addSheetDiv();
 };
 
 function addSheetDiv() {
   const sheetDiv = document.createElement("div");
+
   sheetDiv.innerText = `Sheet-${sheetCount}`;
+
   sheetDiv.className = "sheets";
-  sheet_tab.appendChild(sheetDiv);
   sheetDiv.setAttribute("sheet-id", `${sheetCount}`);
+  sheet_tab.appendChild(sheetDiv);
   sheetCount++;
   currentSheet = sheetCount - 1;
   sheetDiv.addEventListener("click", switchToThisSheet);
