@@ -3,6 +3,8 @@ let activeCellDisplay = document.getElementById("active-cell-display");
 
 let form = document.querySelector(".form");
 
+const calcInput = document.querySelector("#calcInput");
+
 // default style of cell
 const defaultStyle = {
   fontFamily: "popins-regular",
@@ -32,6 +34,8 @@ function onFocusCell(event) {
     //newly touched cell defult style
     resetForm(defaultStyle);
   }
+
+  calcInput.addEventListener("keyup", calcFun);
 }
 
 // if any change occurs in form
@@ -132,4 +136,16 @@ function exportData() {
   link.download = "data.json";
   link.href = url;
   link.click();
+}
+
+function calcFun(event) {
+  const activeCell = document.getElementById(activeCellId);
+  if (event.keyCode === 13) {
+    try {
+      const output = eval(event.target.value);
+      activeCell.innerText = output;
+    } catch (error) {
+      alert("Error: Please enter  correct math operation");
+    }
+  }
 }
