@@ -42,6 +42,10 @@ function onFocusCell(event) {
     resetForm(defaultStyle);
   }
   calcInput.value = "";
+  calcInput.addEventListener("focus", () => {
+    const activeCell = document.getElementById(activeCellId);
+    calcInput.value = activeCell.innerText;
+  });
   calcInput.addEventListener("keyup", calcFun);
   calcInput.addEventListener("input", (event) => {
     const activeCell = document.getElementById(activeCellId);

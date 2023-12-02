@@ -35,6 +35,7 @@
     width: 100vw;
     height: 65vh;
     overflow: scroll;
+    scroll-behavior: smooth;
     margin-top: 30px;
     position: relative;
 }
