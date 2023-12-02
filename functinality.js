@@ -4,12 +4,14 @@ let form = document.querySelector(".form");
 
 //calculator input
 const calcInput = document.querySelector("#calcInput");
+
 // cut copy paste
 const cut = document.querySelector("#cut");
 const copy = document.querySelector("#copy");
 const paste = document.querySelector("#paste");
 //copied text for cut copy paste feature
-let copiedState = {};
+
+let copiedStateOfCell = {};
 
 // default style of cell
 const defaultStyle = {
@@ -150,21 +152,30 @@ paste.addEventListener("click", pasteFun);
 
 function cutFun() {
   const activeCell = document.getElementById(activeCellId);
-  copiedText = activeCell.innerText;
+  console.log(state);
+  console.log(state[activeCellId]);
+
+  copiedStateOfCell = { ...state[activeCellId] };
+  applyStyle(defaultStyle);
   activeCell.innerText = "";
-  state[activeCellId] = { ...state[activeCellId], text: "" };
+  console.log(copiedStateOfCell);
 }
 
 //copy function
 
 function copyFun() {
   const activeCell = document.getElementById(activeCellId);
-  copiedText = activeCell.innerText;
+  console.log(state);
+  console.log(state[activeCellId]);
+
+  copiedStateOfCell = { ...state[activeCellId] };
+  console.log(copiedStateOfCell);
 }
 
 function pasteFun() {
   const activeCell = document.getElementById(activeCellId);
-  activeCell.innerText = `${activeCell.innerText} ${copiedText} `;
-
-  state[activeCellId] = { ...state[activeCellId], text: activeCell.innerText };
+  console.log(copiedStateOfCell);
+  applyStyle(copiedStateOfCell);
+  state[activeCellId] = { ...copiedStateOfCell };
+  activeCell.innerText = state[activeCellId].text;
 }
