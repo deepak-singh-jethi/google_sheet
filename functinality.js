@@ -41,9 +41,12 @@ function onFocusCell(event) {
     //newly touched cell defult style
     resetForm(defaultStyle);
   }
-
+  calcInput.value = "";
   calcInput.addEventListener("keyup", calcFun);
-  // paste.addEventListener("click", pasteFun);
+  calcInput.addEventListener("input", (event) => {
+    const activeCell = document.getElementById(activeCellId);
+    activeCell.innerText = event.target.value;
+  });
 }
 
 // if any change occurs in form

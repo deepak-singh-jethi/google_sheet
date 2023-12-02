@@ -65,7 +65,6 @@
    
     background-color: #f8f7fa;
     min-width: 41px !important;
-    background-color: red;
     position: sticky;
     top: 0;
     left: 0;
@@ -114,7 +113,7 @@
 }
 .cell:focus{
     border-radius: none;
-    outline: 1.5px solid #1B72E8;
+    outline: 2px dotted #1B72E8;
     
 }
 
