@@ -45,7 +45,7 @@ function importData() {
         */
 
       // Clear existing sheet content
-      clearSheet();
+      addSheet();
 
       for (const cellId in jsonData) {
         //getitng the data of each cell
