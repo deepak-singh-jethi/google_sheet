@@ -6,110 +6,132 @@
     <title>Spread Sheet</title>
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./form.css" />
-    <link rel="stylesheet" href="./new_sheet.css">
+    <link rel="stylesheet" href="./new_sheet.css" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet" />
   </head>
   <body>
+    <div id="main_head">
+      <div>File</div>
+      <div id="home">Home</div>
+      <div>Insert</div>
+      <div>Layout</div>
+      <div>Help</div>
+    </div>
 
     <div>
+      <div id="options">
+        <span class="material-icons" id="cut">content_cut</span>
+        <span class="material-icons" id="copy">content_copy</span>
+        <span class="material-icons" id="paste">content_paste</span>
 
-   <div id="options">
-      <form class="form">
-        <select name="fontFamily" id="" class="input">
-          <option value="popins-extra-bold">Popins-extra-bold</option>
-          <option value="popins-medium">Popins-medium</option>
-          <option value="popins-regular" selected>Popins-regular</option>
-          <option value="roboto-thin">roboto-thin</option>
-          <option value="roboto-regular">roboto-regular</option>
-          <option value="roboto-black">roboto-black</option>
-          <option value="roboto-medium">roboto-medium</option>
-        </select>
+        <form class="form">
+          <select name="fontFamily" id="" class="input">
+            <option value="popins-extra-bold">Popins-extra-bold</option>
+            <option value="popins-medium">Popins-medium</option>
+            <option value="popins-regular" selected>Popins-regular</option>
+            <option value="roboto-thin">roboto-thin</option>
+            <option value="roboto-regular">roboto-regular</option>
+            <option value="roboto-black">roboto-black</option>
+            <option value="roboto-medium">roboto-medium</option>
+          </select>
 
-        <input
-          type="Number"
-          name="fontSize"
-          min="8"
-          max="32"
-          value="16"
-          class="input" />
-        <div>
-          <input type="checkbox" id="bold" name="isBold" />
-          <label for="bold" class="material-icons">format_bold</label>
+          <input
+            type="Number"
+            name="fontSize"
+            min="8"
+            max="32"
+            value="16"
+            class="input" />
+          <div>
+            <input type="checkbox" id="bold" name="isBold" />
+            <label for="bold" class="material-icons">format_bold</label>
 
-          <input type="checkbox" id="italic" name="isItalic" />
-          <label for="italic" class="material-icons">format_italic</label>
+            <input type="checkbox" id="italic" name="isItalic" />
+            <label for="italic" class="material-icons">format_italic</label>
 
-          <input type="checkbox" id="underline" name="isUnderline" />
-          <label for="underline" class="material-icons">format_underline</label>
-        </div>
+            <input type="checkbox" id="underline" name="isUnderline" />
+            <label for="underline" class="material-icons"
+              >format_underline</label
+            >
+          </div>
 
-        <div>
-          <input type="radio" name="align" id="left" value="left" checked />
-          <label for="left" class="material-icons">format_align_left </label>
+          <div>
+            <input type="radio" name="align" id="left" value="left" checked />
+            <label for="left" class="material-icons">format_align_left </label>
 
-          <input type="radio" name="align" id="center" value="center" />
-          <label for="center" class="material-icons">format_align_center</label>
+            <input type="radio" name="align" id="center" value="center" />
+            <label for="center" class="material-icons"
+              >format_align_center</label
+            >
 
-          <input type="radio" name="align" id="right" value="right" />
-          <label for="right" class="material-icons">format_align_right</label>
-        </div>
+            <input type="radio" name="align" id="right" value="right" />
+            <label for="right" class="material-icons">format_align_right</label>
+          </div>
 
-        <div>
-          <input type="color" name="textColor" id="textcolor" />
-          <label for="textcolor" class="material-icons"
-            >format_color_text</label
-          >
-        </div>
+          <div>
+            <input type="color" name="textColor" id="textcolor" />
+            <label for="textcolor" class="material-icons"
+              >format_color_text</label
+            >
+          </div>
 
-        <div>
-          <input type="color" name="bgColor" id="bgcolor" value="#ffffff" />
-          <label for="bgcolor" class="material-icons">format_color_fill</label>
-        </div>
+          <div>
+            <input type="color" name="bgColor" id="bgcolor" value="#ffffff" />
+            <label for="bgcolor" class="material-icons"
+              >format_color_fill</label
+            >
+          </div>
 
+          <div title="export file">
+            <span id="export" class="material-icons" onclick="exportData()"
+              >cloud_upload</span
+            >
+          </div>
 
-        <div title="export file">
-           <span id="export" class="material-icons" onclick="exportData()"
-          >cloud_upload</span
-        >
-        </div>
-       
-     <div title="import file">
-        <label for="fileInput" class="material-icons" id="import" >cloud_download</label>
+          <div title="import file">
+            <label for="fileInput" class="material-icons" id="import"
+              >cloud_download</label
+            >
 
-  <input type="file" id="fileInput" accept=".json" class="hidden-input" onchange="importData()"/>
-     </div>
-       
-    </div>
+            <input
+              type="file"
+              id="fileInput"
+              accept=".json"
+              class="hidden-input"
+              onchange="importData()" />
+          </div>
+        </form>
+      </div>
 
-    <div id="cell-state">
-      <div id="active-cell-display">NULL</div>
-      <input type="text" placeholder="f ( x )" id="calcInput" />
-    </div>
+      <div id="cell-state">
+        <div id="active-cell-display">NULL</div>
+        <input type="text" placeholder="f ( x )" id="calcInput" />
+      </div>
 
-    <div id="root">
-      <div id="header">
-        <!--  <div class="head-cell"></div>
+      <div id="root">
+        <div id="header">
+          <!--  <div class="head-cell"></div>
         <div class="head-cell"></div>
         <div class="head-cell"></div>
         <div class="head-cell"></div>
         <div class="head-cell"></div>
         <div class="head-cell"></div> -->
-      </div>
+        </div>
 
-      <div id="body">
-        <div id="sno">
-          <!--  <div class="sno-cell"></div>
+        <div id="body">
+          <div id="sno">
+            <!--  <div class="sno-cell"></div>
           <div class="sno-cell"></div>
           <div class="sno-cell"></div>
           <div class="sno-cell"></div>
           <div class="sno-cell"></div> -->
-        </div>
+          </div>
 
-        <div id="cells-container">
-          <div id="body-container">
-            <!-- <div class="row">
+          <div id="cells-container">
+            <div id="body-container">
+              <!-- <div class="row">
               <div class="cell"></div>
               <div class="cell"></div>
               <div class="cell"></div>
@@ -159,28 +181,20 @@
               <div class="cell"></div>
               <div class="cell"></div>
             </div> -->
+            </div>
           </div>
         </div>
       </div>
     </div>
-    </div>
-   
 
     <div id="sheet_tab">
-      <span class="material-icons" onclick="addSheet()">
-add_box
-</span>
+      <span class="material-icons" onclick="addSheet()"> add_box </span>
       <!-- <div id="sheet1">Sheet-1</div> -->
-     
     </div>
-    
-    
+
     <script src="./newsheet.js"></script>
     <script src="./import_export.js"></script>
     <script src="./functinality.js"></script>
     <script src="./script.js"></script>
-   
-   
-   
   </body>
 </html>

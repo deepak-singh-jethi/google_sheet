@@ -71,3 +71,16 @@ input[type="radio"]+label {
 .hidden-input {
     display: none;
 }
+
+#options{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+    padding-left: 60px;
+}
+
+#options>span{
+    color: black;
+   
+}
