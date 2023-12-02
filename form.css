@@ -1,9 +1,9 @@
 .form{
     display: flex;
-    padding: 30px;
+    padding: 20px 40px;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 40px;
 }
 
 input:checked+ label{
@@ -44,7 +44,7 @@ input[type="radio"]+label {
 #cell-state{
     display: flex;
     gap: 20px;
-    padding: 20px 40px;
+    padding: 10px 40px;
     align-items: center;
     
 }
@@ -77,10 +77,16 @@ input[type="radio"]+label {
     align-items: center;
     justify-content: flex-start;
     gap: 30px;
-    padding-left: 60px;
+    padding-left: 120px;
 }
 
 #options>span{
     color: black;
+    cursor: pointer;
+    transition: all 0.6s ease;
    
+}
+
+#options>span:hover{
+    box-shadow: 0px 0px 5px gray;
 }

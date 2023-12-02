@@ -1,5 +1,5 @@
 const columns = 27;
-const rows = 50;
+const rows = 100;
 const header = document.querySelector("#header");
 const sno = document.querySelector("#sno");
 const bodyContainer = document.querySelector("#body-container");
