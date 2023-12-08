@@ -52,7 +52,7 @@
 }
 
 .head-cell{
-    min-width: 105px;
+    min-width: 160px;
     height: 30px;
     border: 0.11px solid #838483;
     border-top-width:2px ;
@@ -78,6 +78,7 @@
 #body{
     display: grid;
     grid-template-columns: 42px auto;
+    width: fit-content;
 }
 /* serial number 1,2,3,5 */
 #sno{
@@ -107,7 +108,7 @@
 }
 
 .cell{
-     width: 105px;
+     width: 160px;
     height: 35px;
     border: 0.11px solid #838483;
     overflow: hidden;
