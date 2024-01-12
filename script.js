@@ -37,7 +37,7 @@ function createSheet() {
       cell.innerText = "";
       cell.contentEditable = true;
 
-      // id value  = column value + row value(1A);
+      // id value  = column value + row value(A1);
       cell.id = `${String.fromCharCode(64 + j)}${i}`;
       //on clicking or focusing on any cell call function onFocusCell to get its id and further load the activeCellId for chaning its style and change the display cell value
       cell.addEventListener("focus", onFocusCell);
